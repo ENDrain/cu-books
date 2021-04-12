@@ -25,6 +25,7 @@
 			</xsl:element>
 			</head>
 			<body>
+			<xsl:attribute name="class"><xsl:value-of select="@lang"/>-text</xsl:attribute>
 			<xsl:apply-templates/>
 			</body>
 		</xsl:element>
@@ -41,10 +42,44 @@
 			<xsl:otherwise>
 				<xsl:element name="p">
 					<!-- inherit language from document if lang of p is not defined -->
-					<xsl:attribute name="class"><xsl:value-of select="../@lang"/>-text</xsl:attribute><xsl:apply-templates/>
+					<!-- <xsl:attribute name="class"><xsl:value-of select="../@lang"/>-text</xsl:attribute> -->
+					<xsl:apply-templates/>
 				</xsl:element>
 			</xsl:otherwise>
 		</xsl:choose>
+	</xsl:template>
+	<xsl:template match="cu:br">
+		<xsl:element name="br"></xsl:element>
+	</xsl:template>
+	<xsl:template match="cu:h1">
+		<xsl:element name="h1">
+			<xsl:value-of select="."/>
+		</xsl:element>
+	</xsl:template>
+	<xsl:template match="cu:h2">
+		<xsl:element name="h2">
+			<xsl:value-of select="."/>
+		</xsl:element>
+	</xsl:template>
+	<xsl:template match="cu:h3">
+		<xsl:element name="h3">
+			<xsl:value-of select="."/>
+		</xsl:element>
+	</xsl:template>
+	<xsl:template match="cu:h4">
+		<xsl:element name="h4">
+			<xsl:value-of select="."/>
+		</xsl:element>
+	</xsl:template>
+	<xsl:template match="cu:h5">
+		<xsl:element name="h5">
+			<xsl:value-of select="."/>
+		</xsl:element>
+	</xsl:template>
+	<xsl:template match="cu:h6">
+		<xsl:element name="h1">
+			<xsl:value-of select="."/>
+		</xsl:element>
 	</xsl:template>
 	<xsl:template match="cu:red">
 		<xsl:element name="span">
